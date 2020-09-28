@@ -126,12 +126,5 @@ fflush(stdin);
 printf("\nPulse intro para continuar con getch");
 getchar();
 
-int letra3;
-letra3 = getche();
-putchar(letra3);
-fflush(stdin);
-printf("\nPulse intro para continuar con getche");
-getchar();
-
 return 0;
 }
