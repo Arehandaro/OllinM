@@ -5,61 +5,51 @@ int main()
 { 
 
 int numero;
+do 
+{
+	std::cout << "----------" << std::endl;
+	std::cout << "\nMENU\n" << std::endl;
+	std::cout << "----------" << std::endl;
+	std::cout << "1 Juego nuevo\n" << std::endl;
+	std::cout << "2 Abrir juego\n" << std::endl;
+	std::cout << "3 Guardar juego\n" << std::endl;
+	std::cout << "4 Ver puntuaciones\n" << std::endl;
+	std::cout << "0 Salir\n" << std::endl;
+	std::cout << "----------\n" << std::endl;
 
-std::cout << "----------------------" << std::endl;
-std::cout << "\tMENU" << std::endl;
-std::cout << "----------------------" << std::endl;
-
-std::cout << "1 Juego nuevo ----> Pide contraseña" << std::endl;
-std::cout << "2 Abrir juego" << std::endl;
-std::cout << "3 Guardar juego" << std::endl;
-std::cout << "4 Ver puntuaciones" << std::endl;
-std::cout << "0 Salir" << std::endl;
-
+std::cout << "Escribe un numero para cada accion" << std::endl;
 std::cin >> numero;
 
+fflush(stdin);
 switch (numero)
 {
-	case 1:
-	
-	       std::cout << "Escibe la contraseña: " << std::endl;
-	       std::cin >> numero; 
-	       while (numero != CLAVE)
-	       {
-	       	std::cout << "La contraseña es incorrecta" << std::endl;
-		std::cout << "Escibe la contraseña: ";
-		std::cin >> numero;
-	       }
+	case 1: 	std::cout << "Juego nuevo\n" << std::endl;
 
-std::cout << "La contraseña es correcta" << std::endl;
+		break;
+	case 2:		std::cout << "Abrir juego\n" << std::endl;
 
-	break;
-case 2:
-	std::cout << "Abrir juego" << std::endl;
+	       break;
+	case 3:		std::cout << "Guardar juego\n" << std::endl;
 
-	break;
-case 3:
-	std::cout << "Guardar juego" << std::endl;
+		break;
+	case 4:		std::cout << "Ver puntuaciones\n" << std::endl;
 
-	break;
-case 4:
-	std::cout << "Ver puntuaciones" << std::endl;
+		break;
+	case 0:		std::cout << "Salir\n" << std::endl;
 
-	break;
-case 0:
-	std::cout << "Salir" << std::endl;
-
-	break;
-default:
-	std::cout << "Opcion incorrecta" << std::endl;
-
-
-	
+		break;
+	default: std::cout << "\n Ha elegido una opcion no valida\n" << std::endl;
 }
+std::cout << "Pulse intro para continuar\n" << std::endl;
+std::cin.get();
+}
+while(numero != 0);
+
 
 
 
 std::cout << "Pulsa intro para continuar" << std::endl;
 fflush(stdin);
 std::cin.get();
+
 }
