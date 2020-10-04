@@ -1,55 +1,27 @@
-#include <iostream>
-#define CLAVE 123
+#include <stdio.h>
 
-int main()
-{ 
-
-int numero;
-do 
+int main(void)
 {
-	std::cout << "----------" << std::endl;
-	std::cout << "\nMENU\n" << std::endl;
-	std::cout << "----------" << std::endl;
-	std::cout << "1 Juego nuevo\n" << std::endl;
-	std::cout << "2 Abrir juego\n" << std::endl;
-	std::cout << "3 Guardar juego\n" << std::endl;
-	std::cout << "4 Ver puntuaciones\n" << std::endl;
-	std::cout << "0 Salir\n" << std::endl;
-	std::cout << "----------\n" << std::endl;
+	int edad1, edad2, edad3, edad4, media;
 
-std::cout << "Escribe un numero para cada accion" << std::endl;
-std::cin >> numero;
+	printf("Introdusca la edad de la persona 1: ");
+	scanf("%d", &edad1);
 
-fflush(stdin);
-switch (numero)
-{
-	case 1: 	std::cout << "Juego nuevo\n" << std::endl;
+	printf("Introdusca la edad de la persona 2: ");
+	scanf("%d", &edad2);
 
-		break;
-	case 2:		std::cout << "Abrir juego\n" << std::endl;
+	printf("Introdusca la edad de la persona 3: ");
+	scanf("%d", &edad3);
 
-	       break;
-	case 3:		std::cout << "Guardar juego\n" << std::endl;
+	printf("Introdusca la edad de la persona 4: ");
+	scanf("%d", &edad4);
+	
+	media = (edad1 + edad2 + edad3 + edad4) / 4;
 
-		break;
-	case 4:		std::cout << "Ver puntuaciones\n" << std::endl;
-
-		break;
-	case 0:		std::cout << "Salir\n" << std::endl;
-
-		break;
-	default: std::cout << "\n Ha elegido una opcion no valida\n" << std::endl;
-}
-std::cout << "Pulse intro para continuar\n" << std::endl;
-std::cin.get();
-}
-while(numero != 0);
+	printf("La media es; %d ", media);
+	
 
 
-
-
-std::cout << "Pulsa intro para continuar" << std::endl;
-fflush(stdin);
-std::cin.get();
-
+	fflush(stdin);
+	getchar();
 }
