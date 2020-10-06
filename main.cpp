@@ -1,26 +1,31 @@
+#include <iostream>
 #include <stdio.h>
 
 int main(void)
 {
-	int edad1, edad2, edad3, edad4, media;
+	float vector [4][3]
+	{
+		1, 1, 1,
+		2, 2, 2, 
+		3, 3, 3,
+	        4, 4, 4	
+	};
 
-	printf("Introdusca la edad de la persona 1: ");
-	scanf("%d", &edad1);
+	vector [0][0]= 45;
 
-	printf("Introdusca la edad de la persona 2: ");
-	scanf("%d", &edad2);
+	std::cout << "\nEl valor del vector 0_0 es: " << std::endl;
 
-	printf("Introdusca la edad de la persona 3: ");
-	scanf("%d", &edad3);
-
-	printf("Introdusca la edad de la persona 4: ");
-	scanf("%d", &edad4);
+	std::cout << vector[0][0];
 	
-	media = (edad1 + edad2 + edad3 + edad4) / 4;
+	std::cout << "\nIntroduce el nuevo valor del vector 0_0" << std::endl;
 
-	printf("La media es; %d ", media);
-	
+	std::cin >> vector [0][0];
 
+	std::cout << "\nEl nuevo valor del vector 0_0 es: " << std::endl;
+
+	std::cout << vector [0][0];
+
+	std::cout << "\nPulsa intro para salir" << std::endl;
 
 	fflush(stdin);
 	getchar();
