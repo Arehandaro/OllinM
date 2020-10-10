@@ -1,32 +1,44 @@
-#include <iostream>
+#include <GL/glew.h> // include GLEW and new version of GL on Windows
+
+#define GLFW_DLL
+
+#include <GLFW/glfw3.h> // GLFW helper library
 #include <stdio.h>
+
+
 
 int main(void)
 {
-	float vector [4][3]
-	{
-		1, 1, 1,
-		2, 2, 2, 
-		3, 3, 3,
-	        4, 4, 4	
-	};
+    GLFWwindow* window;
 
-	vector [0][0]= 45;
+    /* Initialize the library */
+    if (!glfwInit())
+        return -1;
 
-	std::cout << "\nEl valor del vector 0_0 es: " << std::endl;
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
 
-	std::cout << vector[0][0];
-	
-	std::cout << "\nIntroduce el nuevo valor del vector 0_0" << std::endl;
+    /* Make the window's context current */
+    glfwMakeContextCurrent(window);
 
-	std::cin >> vector [0][0];
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
+        /* Render here */
+        glClear(GL_COLOR_BUFFER_BIT);
 
-	std::cout << "\nEl nuevo valor del vector 0_0 es: " << std::endl;
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
 
-	std::cout << vector [0][0];
+        /* Poll for and process events */
+        glfwPollEvents();
+    }
 
-	std::cout << "\nPulsa intro para salir" << std::endl;
-
-	fflush(stdin);
-	getchar();
+    glfwTerminate();
+    return 0;
 }

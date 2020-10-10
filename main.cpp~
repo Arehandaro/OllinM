@@ -1,32 +1,51 @@
-#include <iostream>
+#include <GL/glew.h> // include GLEW and new version of GL on Windows
+
+#define GLFW_DLL
+
+#include <GLFW/glfw3.h> // GLFW helper library
 #include <stdio.h>
 
-int main(void)
-{
-	float vector [4][3]
-	{
-		1, 1, 1,
-		2, 2, 2, 
-		3, 3, 3,
-	        4, 4, 4	
-	};
 
-	vector [0][0]= 45;
 
-	std::cout << "El valor del vector 0_0 es: " << std::endl;
 
-	std::cout << vector[0][0] << std::endl;
-	
-	std::cout << "Introduce el nuevo valor del vector 0_0" << std::endl;
+int main() {
+  // start GL context and O/S window using the GLFW helper library
+  if (!glfwInit()) {
+    fprintf(stderr, "ERROR: could not start GLFW3\n");
+    return 1;
+  } 
 
-	std::cin >> vector [0][0] << std::endl;
+  // uncomment these lines if on Apple OS X
+  /*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);*/
 
-	std::cout << "El nuevo valor del vector 0_0 es: " << std::endl;
+  GLFWwindow* window = glfwCreateWindow(640, 480, "Hello Triangle", NULL, NULL);
+  if (!window) {
+    fprintf(stderr, "ERROR: could not open window with GLFW3\n");
+    glfwTerminate();
+    return 1;
+  }
+  glfwMakeContextCurrent(window);
+                                  
+  // start GLEW extension handler
+  glewExperimental = GL_TRUE;
+  glewInit();
 
-	std::cout << vector [0][0] << std::endl;
+  // get version info
+  const GLubyte* renderer = glGetString(GL_RENDERER); // get renderer string
+  const GLubyte* version = glGetString(GL_VERSION); // version as a string
+  printf("Renderer: %s\n", renderer);
+  printf("OpenGL version supported %s\n", version);
 
-	std::cout << "Pulsa intro para salir" << std::endl;
+  // tell GL to only draw onto a pixel if the shape is closer to the viewer
+  glEnable(GL_DEPTH_TEST); // enable depth-testing
+  glDepthFunc(GL_LESS); // depth-testing interprets a smaller value as "closer"
 
-	fflush(stdin);
-	getchar();
+  /* OTHER STUFF GOES HERE NEXT */
+  
+  // close GL context and any other GLFW resources
+  glfwTerminate();
+  return 0;
 }
